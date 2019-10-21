@@ -1,4 +1,5 @@
 1. How is Python an interpretive language?
+
 An interpreted language means that when executing a program you read the source file one line at a time and do what it says.
 Python source code is compiled into bytecode implicitly and this code is executed by a virtual machine. You don't have to run a
 compiler, you just have to run the python file. It compiles files as needed. Another feature of Python that is interepretive in
@@ -8,12 +9,44 @@ languages don't do. The implicit compilated and interactive prompt make Python a
 Source: https://nedbatchelder.com/blog/201803/is_python_interpreted_or_compiled_yes.html
 
 2. What is the difference between Python Arrays, lists, tuples, and records? Explain it with examples.
+
 Arrays-   Sequence of data types that can store a collection of items that functions can be performed on.
+
+Example:
+
+cars = ["Toyota", "Camry", "Jaguar"]
+for x in cars:
+          print(x)
+Output:
+Toyota
+Camry
+Jaguar
+        
 Lists-    MUTABLE** sequence of data types that can store a collection of items. The elements of lists can be any data type.
+
+Example:
+   
 Tuples-   IMMUTABLE* sequence of data types that can store a collection of items. Similar to a record but the elements are not
           named.
+          
+Example:
+   
 Records-  An aggregate of data elements in which the individual elements are identified by names and accessed through offsets
           from the beginning of the structure. 
+          
+Example: 
+from pyrecord import Record
+Animal = Record.create_type("Animal", "friend", "food")
+Mammal = Person.extend_type("Mammal", "color", "sound")
+Reptile = Person.extend_type("Reptile", "home")
+
+Lion = Mammal("Lion", "Tiger", "Antelope", "Yellow", "Roar")
+Snake = Reptile("Snake", "None", "Mice", "Desert")
+
+Snake.friend returns None
+Lion == Snake returns false
+Lion returns Mammal(friend='Tiger', food='Antelope', color='Yellow', sound='Roar')
+   
 
 *Immutable: A Python object of this type CANNOT be modified after initialization
 **Mutable: A Python object of this type CAN be modified after initialization
@@ -22,8 +55,10 @@ Source: https://www.afternerd.com/blog/difference-between-list-tuple/
         https://www.pythoncentral.io/the-difference-between-a-list-and-an-array/
         https://elearning.utdallas.edu/bbcswebdav/pid-2755059-dt-content-rid-71969160_1/courses/2198-merged-CE4337001-
         CS4337001/CS%204337-%20Ch%206-%20Part3.pdf
+        https://pythonhosted.org/pyrecord/
       
 3. What does [::-1] do? Explain it with an example.
+
 [::-1] is an extended slice that returns the reverse order of a list in Python.
 
 For example, if list = range(5) then list[::-1] returns [4, 3, 2, 1]. 
@@ -31,20 +66,99 @@ For example, if list = range(5) then list[::-1] returns [4, 3, 2, 1].
 Sources: https://docs.python.org/2.3/whatsnew/section-slices.html
 
 4. How can you randomize the items of a list in place in Python?
-from random import shuffle
+
+import shuffle from random
 Then use the shuffle() function on the list.
 
 For example,
 list = range(5) // [0, 1, 2, 3, 4]
 shuffle(list)
 
-new value of list = [4, 2, 0, 1, 3]
+New value of list = [4, 2, 0, 1, 3]
 
 Sources: https://stackoverflow.com/questions/34862378/randomizing-a-list-in-python/34862409
 
-5. What is the difference between range & xrange?Explain it with an example
+5. What is the difference between range & xrange? Explain it with an example.
 
-Sources: https://www.pythoncentral.io/how-to-use-pythons-xrange-and-range/
+Range generates a list of integers and returns a Python list object. On the other hand, xrange generates a list of integers
+and returns it as an xrange object. Range creates a static list at run-time; xrange generates values as you need them using 
+yielding (looping, lazy evaluation). Range takes up more memory than xrange as it is static. List operations can be used on range 
+but not on xrange. Range is slower than xrange. If you need code compatible with both Python 2 and Python 3, use range as there is 
+no xrange in Python 3 (range behaves like xrange in Python 2).
+
+Ex. 
+range_num = range(0,10,1)     // [0,1,2,3,4,5,6,7,8,9]
+xrange_num = xrange(0,10,1)   // [0,1,2,3,4,5,6,7,8,9]
+
+print (type(range_num))        
+print (type(xrange_num))       
+
+range_num = range(1,10000)     
+xrange_num = xrange(1,10000)  
+
+print (sys.getsizeof(range_num))       
+print (sys.getsizeof(xrange_num))     
+
+Output:
+<type 'list'>
+<type 'xrange'>
+80064 
+40
+
+Sources:  https://www.pythoncentral.io/how-to-use-pythons-xrange-and-range/
+          https://pynative.com/python-xrange-vs-range/
+          
 6. What advantages do NumPy arrays offer over (nested) Python lists?
+
+1. NumPy's arrays are more compact. takes up less memory
+2. Access in reading and writing items is faster
+3. Greater functionality, there are alot more built in functions
+
+Sources:  https://stackoverflow.com/questions/993984/what-are-the-advantages-of-numpy-over-regular-python-lists
+          https://webcourses.ucf.edu/courses/1249560/pages/python-lists-vs-numpy-arrays-what-is-the-difference
+
 7. How to add values to a python array? Explain it with an example
+
+Simply use the append() method. 
+
+Example:
+
+names = ["Camryn", "Paige", "Rogers"]
+
+names.append("Henderson")
+
+for x in names:
+          print(x)
+          
+Output:
+Camryn
+Paige
+Rogers
+Henderson
+
+Sources:  https://www.w3schools.com/python/python_arrays.asp
+
 8. What is split used for? Explain it with an example
+
+split() is a method that returns a list of strings after breaking the given string by a seperator. 
+You use it on string objects and the syntax is strng.split(seperator, maxsplit). The seperator is a delimiter (none = ' ') and the
+maxsplit is the maximum number of strings that can be returned.
+
+For example:
+
+a = 'Wombats are cool'
+b = 'Woah:What:Huh'
+c = 'Hi there, what's your name?'
+
+print (a.split())
+print (b.split(':'))
+print (c.split(3))
+print (b.split(':', 2))
+
+Output:
+['Wombats', 'are', 'cool']
+['Woah', 'What', 'Huh']
+['Hi', 'there,' 'what's your name?']
+['Woah', 'What:Huh']
+
+Sources:  https://www.geeksforgeeks.org/python-string-split/
