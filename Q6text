@@ -1,0 +1,5 @@
+I personally believe that while using pointers and pointer arithmetic may be more efficient, it's more reliable to use subscripting.
+With pointers, you can easily go outside of the bounds of the array by accident and manipulate memory that you are not intending to.
+This can lead to core dumping if you are not careful. For subscripting, you will get an error if you go outside of the bounds of the 
+array. I also think that subscripting is more simple and easier to understand so there is a less likely chance of making coding 
+errors.
