@@ -1,0 +1,12 @@
+To test the type compatibility rules in Java, I created variables of type int, String, float, double and char and tried to assign 
+them to each other. For example, I tried to assign the float to the double, String, int, and char. I did this for every data type.
+My conclusions are below:
+1. A character can be implicitly converted to an integer, float and double (the ASCII value is used) but not a String.
+2. Trying to assign a String, float or double to an integer variable results in an error.
+3. Trying to assign an integer, float, double or char to a String variable results in an error.
+4. If an integer or char is assigned to a float or a double then the resulting float is the integer with a ".0" at the end. For 
+example, 1 became 1.0.
+5. A double cannot be assigned to a float unless it is type-cast.
+6. A String cannot be assigned to a float or a double.
+7. A float can be assigned to a double.
+8. Trying to assign an int, String, float or double to a char results in an error.
