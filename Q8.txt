@@ -10,44 +10,18 @@ Source: https://nedbatchelder.com/blog/201803/is_python_interpreted_or_compiled_
 
 2. What is the difference between Python Arrays, lists, tuples, and records? Explain it with examples.
 
-Arrays-   Sequence of data types that can store a collection of items that functions can be performed on.
-
-Example:
-
-cars = ["Toyota", "Camry", "Jaguar"]
-for x in cars:
-          print(x)
-Output:
-Toyota
-Camry
-Jaguar
+Arrays-   Sequence of data types that can store a collection of items that functions can be performed on. Fixed length or 
+          resizeable. Not a Python data type.
         
 Lists-    MUTABLE** sequence of data types that can store a collection of items. The elements of lists can be any data type.
-
-Example:
+          In Python, lists are variable length arrays. They are declared the same way. Maintain order and allow duplication.
    
 Tuples-   IMMUTABLE* sequence of data types that can store a collection of items. Similar to a record but the elements are not
-          named.
+          named. Maintain order and allow duplication.
           
-Example:
-   
 Records-  An aggregate of data elements in which the individual elements are identified by names and accessed through offsets
-          from the beginning of the structure. 
+          from the beginning of the structure. Python tuples are records. Not a Python data type.
           
-Example: 
-from pyrecord import Record
-Animal = Record.create_type("Animal", "friend", "food")
-Mammal = Animal.extend_type("Mammal", "color", "sound")
-Reptile = Animal.extend_type("Reptile", "home")
-
-Lion = Mammal("Lion", "Tiger", "Antelope", "Yellow", "Roar")
-Snake = Reptile("Snake", "None", "Mice", "Desert")
-
-Snake.friend returns None
-Lion == Snake returns false
-Lion returns Mammal(friend='Tiger', food='Antelope', color='Yellow', sound='Roar')
-   
-
 *Immutable: A Python object of this type CANNOT be modified after initialization
 **Mutable: A Python object of this type CAN be modified after initialization
 
@@ -56,6 +30,7 @@ Source: https://www.afternerd.com/blog/difference-between-list-tuple/
         https://elearning.utdallas.edu/bbcswebdav/pid-2755059-dt-content-rid-71969160_1/courses/2198-merged-CE4337001-
         CS4337001/CS%204337-%20Ch%206-%20Part3.pdf
         https://pythonhosted.org/pyrecord/
+        https://en.wikiversity.org/wiki/Python_Programming/Tuples_and_Sets#cite_note-23
       
 3. What does [::-1] do? Explain it with an example.
 
