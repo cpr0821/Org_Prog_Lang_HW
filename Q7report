@@ -3,5 +3,5 @@ parameter. This means that calling a function in an equation doesn't change the 
 the rest of the equation. In the first equation, I called square on a, which changed the value of a to 10 IN THE FUNCTION and returned 
 a*a = 10*10 = 100. This was then added to (a/2) which is still (5/2) = 2, producing the final answer of 102. For the second equation, we 
 have (b/2) + square(b) = (2/2) + square(b) = 1 + square(b) = 1 + 100 = 101. If the method was called first before the (b/2) and if Java
-didn't make copies of vaiables passed by value, then (b/2) would have been (10/2) = 5 and the final value of the equation would have been
-105. However, Java does make copies and equations are evaluated left to right to avoid unintended function interferance.
+didn't make copies of variables passed by value, then (b/2) would have been (10/2) = 5 and the final value of the equation would have been
+105. However, Java does make copies and equations are evaluated left to right to avoid unintended function interference.
