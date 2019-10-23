@@ -37,8 +37,8 @@ Records-  An aggregate of data elements in which the individual elements are ide
 Example: 
 from pyrecord import Record
 Animal = Record.create_type("Animal", "friend", "food")
-Mammal = Person.extend_type("Mammal", "color", "sound")
-Reptile = Person.extend_type("Reptile", "home")
+Mammal = Animal.extend_type("Mammal", "color", "sound")
+Reptile = Animal.extend_type("Reptile", "home")
 
 Lion = Mammal("Lion", "Tiger", "Antelope", "Yellow", "Roar")
 Snake = Reptile("Snake", "None", "Mice", "Desert")
@@ -61,7 +61,7 @@ Source: https://www.afternerd.com/blog/difference-between-list-tuple/
 
 [::-1] is an extended slice that returns the reverse order of a list in Python.
 
-For example, if list = range(5) then list[::-1] returns [4, 3, 2, 1]. 
+For example, if list = [0,1,2,3,4] then list[::-1] returns [4, 3, 2, 1]. 
 
 Sources: https://docs.python.org/2.3/whatsnew/section-slices.html
 
@@ -71,10 +71,10 @@ import shuffle from random
 Then use the shuffle() function on the list.
 
 For example,
-list = range(5) // [0, 1, 2, 3, 4]
+list = [0, 1, 2, 3, 4]
 shuffle(list)
 
-New value of list = [4, 2, 0, 1, 3]
+Output of list = [4, 2, 0, 1, 3]
 
 Sources: https://stackoverflow.com/questions/34862378/randomizing-a-list-in-python/34862409
 
@@ -87,8 +87,8 @@ but not on xrange. Range is slower than xrange. If you need code compatible with
 no xrange in Python 3 (range behaves like xrange in Python 2).
 
 Ex. 
-range_num = range(0,10,1)     // [0,1,2,3,4,5,6,7,8,9]
-xrange_num = xrange(0,10,1)   // [0,1,2,3,4,5,6,7,8,9]
+range_num = range(0,10,1)     # [0,1,2,3,4,5,6,7,8,9]
+xrange_num = xrange(0,10,1)   # [0,1,2,3,4,5,6,7,8,9]
 
 print (type(range_num))        
 print (type(xrange_num))       
@@ -142,7 +142,7 @@ Sources:  https://www.w3schools.com/python/python_arrays.asp
 
 split() is a method that returns a list of strings after breaking the given string by a seperator. 
 You use it on string objects and the syntax is strng.split(seperator, maxsplit). The seperator is a delimiter (none = ' ') and the
-maxsplit is the maximum number of strings that can be returned.
+maxsplit is the maximum number of strings + 1 that can be returned.
 
 For example:
 
@@ -152,8 +152,8 @@ c = 'Hi there, what's your name?'
 
 print (a.split())
 print (b.split(':'))
-print (c.split(3))
-print (b.split(':', 2))
+print (c.split(' ', 2))
+print (b.split(':', 1))
 
 Output:
 ['Wombats', 'are', 'cool']
